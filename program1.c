@@ -54,6 +54,6 @@ int main(){
 	moves += count + p + (largest - pow(2,p) );
 
 	
-	printf("Minimum moves: %d\n", moves);
+	printf("Minimum moves required: %d\n", moves);
 
 }
