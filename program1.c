@@ -39,16 +39,21 @@ int main(){
 	}
 	
 	int moves = 0;
-	for(int i=0; i<count; i++){
-		if (targets[i] == 0) continue;
-		if (targets[i] == 1) moves++;
-		else{
-			moves++;
-			int p = log2(targets[i]);
-			moves += p + (targets[i] - pow(2, p) );
-		}
+	int smallest = targets[0];
+	int largest = targets[0];
 
+	for(int i=0; i<count; i++){
+		if (targets[i] < smallest){
+			smallest = targets[i];
+		}
+		if(targets [i] > largest){
+			largest = targets[i];
+		}
 	}
+	int p = log2(smallest);
+	moves += count + p + (largest - pow(2,p) );
+
+	
 	printf("Minimum moves: %d\n", moves);
 
 }
