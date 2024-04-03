@@ -23,37 +23,34 @@ Example 3: Suppose you have 3 bucket and you need to put
 Then minimum operation required to do this task is 7.
 */
 
-
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-int main(){
+int main() {
 	int count;
 	printf("Enter number of buckets: ");
 	scanf("\n%d", &count);
 	int targets[count];
 
-	for(int i=0; i<count; i++){
-		printf("Enter target number of fruits in bucket %d: ", i+1);
+	for (int i = 0; i < count; i++) {
+		printf("Enter target number of fruits in bucket %d: ", i + 1);
 		scanf("\n%d", &targets[i]);
 	}
-	
+
 	int moves = 0;
 	int smallest = targets[0];
 	int largest = targets[0];
 
-	for(int i=0; i<count; i++){
-		if (targets[i] < smallest){
+	for (int i = 0; i < count; i++) {
+		if (targets[i] < smallest) {
 			smallest = targets[i];
 		}
-		if(targets [i] > largest){
+		if (targets[i] > largest) {
 			largest = targets[i];
 		}
 	}
 	int p = log2(smallest);
-	moves += count + p + (largest - pow(2,p) );
+	moves += count + p + (largest - pow(2, p));
 
-	
 	printf("Minimum moves required: %d\n", moves);
-
 }
